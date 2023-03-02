@@ -61,6 +61,19 @@ code {
 }
 
 
+@keyframes animate {
+
+  0%,
+  100% {
+    top: 65px;
+  }
+
+  50% {
+    top: 320px;
+  }
+}
+
+
 .qr-code-scanner {
   position: unset !important;
 }

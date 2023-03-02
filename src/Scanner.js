@@ -4,6 +4,7 @@ import BarCodeInformation from "./BarCodeInformation";
 
 function Sccanner() {
   const [isShownModal, setIsShownModal] = useState(false);
+  const [barCode, setBarCode] = useState("");
   const modalRef = useRef(null);
 
   const handleCloseModal = () => {
@@ -30,7 +31,7 @@ function Sccanner() {
 
   const state = {
     delay: 100,
-    result: "No result",
+    result: "No result"
   };
 
   const previewStyle = {
@@ -39,7 +40,7 @@ function Sccanner() {
     borderRadius: "20px",
     position: "absolute",
     borderRadius: "10px",
-    objectFit: "contain",
+    objectFit: "contain"
   };
   const [data, setData] = React.useState("Not Found");
   return (
@@ -60,8 +61,10 @@ function Sccanner() {
             width={300}
             height={320}
             onUpdate={(err, result) => {
-              if (result) setIsShownModal(true);
-              else setData("Not Found");
+              if (result) {
+                setIsShownModal(true);
+                setBarCode(result.text);
+              } else setData("Not Found");
             }}
             delay={state.delay}
             style={previewStyle}
@@ -69,13 +72,13 @@ function Sccanner() {
               width: "370px",
               height: "320px",
               borderRadius: "10px",
-              objectFit: "contain",
+              objectFit: "contain"
             }}
             containerStyle={{
               width: "370px",
               height: "320px",
               borderRadius: "10px",
-              objectFit: "contain",
+              objectFit: "contain"
             }}
             className="qr-code-scanner"
           />
@@ -89,7 +92,7 @@ function Sccanner() {
       </div>
       <div className={`bottom-modal ${isShownModal ? "show" : ""}`}>
         <div className="content" ref={modalRef}>
-          <BarCodeInformation />
+          <BarCodeInformation barCode={barCode} />
         </div>
       </div>
     </div>
