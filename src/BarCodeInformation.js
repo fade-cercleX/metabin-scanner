@@ -9,7 +9,7 @@ function BarCodeInformation({ barCode }) {
   const [capacity, setCapacity] = useState("");
   const [material, setMaterial] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = "http://10.10.101.224:8001/api/metabin/create-new-barcode";
+  const URL = "https://a442-202-129-197-162.in.ngrok.io/";
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
@@ -44,10 +44,11 @@ function BarCodeInformation({ barCode }) {
   };
   return (
     <div>
-      <b>Barcode Data Collection and Product Information</b>
+      <div  className="title" >
+      <b >Barcode Data Collection and Product Information</b></div>
 
       <form onSubmit={handleSubmit}>
-        <label>Barcode number</label>
+        <label>Barcode Number</label>
         <input
           value={barCode}
           type="string"
@@ -76,7 +77,7 @@ function BarCodeInformation({ barCode }) {
         <input
           type="string"
           className="input-field"
-          placeholder="product name"
+          placeholder="Enter Brand Name"
           onChange={(e) => {
             setBrand(e.target.value);
             setErrorMessage("");
@@ -88,7 +89,7 @@ function BarCodeInformation({ barCode }) {
         <input
           type="string"
           className="input-field"
-          placeholder="company name"
+          placeholder="Enter Company Name"
           onChange={(e) => {
             setCompany(e.target.value);
             setErrorMessage("");
@@ -100,7 +101,7 @@ function BarCodeInformation({ barCode }) {
         <input
           type="number"
           className="input-field"
-          placeholder=" enter capacity "
+          placeholder=" Enter Capacity "
           onChange={(e) => {
             setCapacity(e.target.value);
             setErrorMessage("");
@@ -111,7 +112,7 @@ function BarCodeInformation({ barCode }) {
           <p style={{ fontSize: "11px", color: "tomato" }}>{errorMessage}</p>
         )}
         <button className="primary-btn normal-size " type="submit">
-          Save
+          SAVE
         </button>
       </form>
     </div>
