@@ -13,7 +13,7 @@ function Sccanner() {
 
   useEffect(() => {
     setIsShownModal(false);
-  }, [false]);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -39,9 +39,11 @@ function Sccanner() {
     width: "350px",
     borderRadius: "20px",
     position: "absolute",
+    // eslint-disable-next-line no-dupe-keys
     borderRadius: "10px",
     objectFit: "contain"
   };
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = React.useState("Not Found");
   return (
     <div className="barcode-page-bg">
