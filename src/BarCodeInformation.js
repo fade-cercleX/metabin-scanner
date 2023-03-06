@@ -9,7 +9,8 @@ function BarCodeInformation({ barCode }) {
   const [capacity, setCapacity] = useState("");
   const [material, setMaterial] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = "https://a442-202-129-197-162.in.ngrok.io/";
+  const URL =
+    "https://good-lime-shrimp-cap.cyclic.app/api/metabin/create-new-barcode/";
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
@@ -34,8 +35,8 @@ function BarCodeInformation({ barCode }) {
       .then((res) => {
         if (res.status === 200) {
           toast.success("Barcode has been added successfully");
-        }else{
-            toast.error("something went wrong")
+        } else {
+          toast.error("something went wrong");
         }
       })
       .catch((error) => {
@@ -44,8 +45,9 @@ function BarCodeInformation({ barCode }) {
   };
   return (
     <div>
-      <div  className="title" >
-      <b >Barcode Data Collection and Product Information</b></div>
+      <div className="title">
+        <b>Barcode Data Collection and Product Information</b>
+      </div>
 
       <form onSubmit={handleSubmit}>
         <label>Barcode Number</label>

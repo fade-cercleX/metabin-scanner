@@ -157,3 +157,21 @@ code {
 .css-1u9des2-indicatorSeparator {
   display: none !important;
 }
+
+.laptop-view {
+  display: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .app {
+    display: none;
+  }
+
+  .laptop-view {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+}
