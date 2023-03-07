@@ -113,7 +113,7 @@ function BarCodeInformation({ barCode, setIsShownModal }) {
 
         <label>Capacity </label>
         <input
-          type="number"
+          type="string"
           className="input-field"
           placeholder=" Enter Capacity "
           onChange={(e) => {
