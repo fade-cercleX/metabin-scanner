@@ -35,8 +35,8 @@ function Sccanner() {
   };
 
   const previewStyle = {
-    height: 300,
-    width: "350px",
+    height: 250,
+    width: "250px",
     borderRadius: "20px",
     position: "absolute",
     // eslint-disable-next-line no-dupe-keys
@@ -60,8 +60,8 @@ function Sccanner() {
           className="flex column justify-center align-center QR-code-bg "
         >
           <BarcodeScannerComponent
-            width={300}
-            height={320}
+            width={250}
+            height={250}
             onUpdate={(err, result) => {
               if (result) {
                 setIsShownModal(true);
@@ -71,20 +71,19 @@ function Sccanner() {
             delay={state.delay}
             style={previewStyle}
             videoStyle={{
-              width: "370px",
-              height: "320px",
+              width: "250px",
+              height: "250px",
               borderRadius: "10px",
               objectFit: "contain"
             }}
             containerStyle={{
-              width: "370px",
-              height: "320px",
+              width: "250px",
+              height: "250px",
               borderRadius: "10px",
               objectFit: "contain"
             }}
             className="qr-code-scanner"
           />
-
           <span className="qr-code-scanner-line"></span>
         </div>
 
