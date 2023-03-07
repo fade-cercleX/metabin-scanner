@@ -16,6 +16,12 @@ function Sccanner() {
   }, []);
 
   useEffect(() => {
+    if (barCode) {
+      setIsShownModal(true);
+    }
+  }, [barCode]);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         handleCloseModal();
@@ -35,8 +41,8 @@ function Sccanner() {
   };
 
   const previewStyle = {
-    height: 250,
-    width: "250px",
+    height: 300,
+    width: "350px",
     borderRadius: "20px",
     position: "absolute",
     // eslint-disable-next-line no-dupe-keys
@@ -60,25 +66,24 @@ function Sccanner() {
           className="flex column justify-center align-center QR-code-bg "
         >
           <BarcodeScannerComponent
-            width={250}
-            height={250}
+            width={300}
+            height={320}
             onUpdate={(err, result) => {
               if (result) {
-                setIsShownModal(true);
                 setBarCode(result.text);
               } else setData("Not Found");
             }}
             delay={state.delay}
             style={previewStyle}
             videoStyle={{
-              width: "250px",
-              height: "250px",
+              width: "370px",
+              height: "320px",
               borderRadius: "10px",
               objectFit: "contain"
             }}
             containerStyle={{
-              width: "250px",
-              height: "250px",
+              width: "370px",
+              height: "320px",
               borderRadius: "10px",
               objectFit: "contain"
             }}
