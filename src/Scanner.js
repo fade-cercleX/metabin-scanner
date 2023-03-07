@@ -69,13 +69,13 @@ function Sccanner() {
             width={300}
             height={320}
             onUpdate={(err, result) => {
-              if (result) {
+              if (result.text) {
                 setBarCode(result.text);
               } else setData("Not Found");
             }}
             delay={state.delay}
             style={previewStyle}
-            videoStyle={{
+            videoStyle={{ 
               width: "370px",
               height: "320px",
               borderRadius: "10px",
