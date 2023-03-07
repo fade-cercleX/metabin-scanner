@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import ReactLoading from "react-loading";
 
-function BarCodeInformation({ barCode }) {
+function BarCodeInformation({ barCode, setIsShownModal }) {
   const options = [{ value: "Pet", label: "Pet" }];
+  const [loading, setLoading] = useState(false);
   const [company, setCompany] = useState("");
   const [brand, setBrand] = useState("");
   const [capacity, setCapacity] = useState("");
   const [material, setMaterial] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const URL =
-    "https://good-lime-shrimp-cap.cyclic.app/api/metabin/create-new-barcode/";
+    "https://fluffy-red-piranha.cyclic.app/api/metabin/create-new-barcode/";
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setErrorMessage("");
     if (!barCode || !brand || !company || !material || !capacity) {
       return setErrorMessage("Please fill in all required fields.");
     }
+    setLoading(true);
     const req = new Request(URL, {
       method: "POST",
       body: JSON.stringify({
@@ -34,12 +38,20 @@ function BarCodeInformation({ barCode }) {
     fetch(req)
       .then((res) => {
         if (res.status === 200) {
+          setLoading(false);
           toast.success("Barcode has been added successfully");
+          setIsShownModal(false);
         } else {
+          setLoading(false);
+          setIsShownModal(false);
           toast.error("something went wrong");
         }
       })
       .catch((error) => {
+        setLoading(false);
+        setIsShownModal(false);
+
+        toast.error("something went wrong");
         console.log(error.response ? error.response?.data : error.message);
       });
   };
@@ -113,8 +125,11 @@ function BarCodeInformation({ barCode }) {
         {errorMessage && (
           <p style={{ fontSize: "11px", color: "tomato" }}>{errorMessage}</p>
         )}
-        <button className="primary-btn normal-size " type="submit">
-          SAVE
+        <button
+          className="primary-btn normal-size flex align-center justify-center "
+          type="submit"
+        >
+          {loading ? <ReactLoading type={"bubbles"} color="#fff" /> : "SAVE"}
         </button>
       </form>
     </div>

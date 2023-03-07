@@ -94,7 +94,10 @@ function Sccanner() {
       </div>
       <div className={`bottom-modal ${isShownModal ? "show" : ""}`}>
         <div className="content" ref={modalRef}>
-          <BarCodeInformation barCode={barCode} />
+          <BarCodeInformation
+            barCode={barCode}
+            setIsShownModal={setIsShownModal}
+          />
         </div>
       </div>
     </div>
