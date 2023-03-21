@@ -3,7 +3,7 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import ReactLoading from "react-loading";
 
-function BarCodeInformation({ barCode, setIsShownModal }) {
+function BarCodeInformation({ barCode, setBarCode, setIsShownModal }) {
   const options = [{ value: "Pet", label: "Pet" }];
   const [loading, setLoading] = useState(false);
   const [company, setCompany] = useState("");
@@ -67,8 +67,8 @@ function BarCodeInformation({ barCode, setIsShownModal }) {
           value={barCode}
           type="string"
           className="input-field"
-          disabled
           placeholder="barcode number"
+          onChange={(e) => setBarCode(e.target.value)}
         />
         <label>Product Material</label>
         <div className="input-drop-down">

@@ -45,8 +45,18 @@ code {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #2F0F4A;
+  align-items: center;
 }
 
+
+.btn {
+  background-color: #6f2da8;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+
+}
 
 
 .QR-code-bg {

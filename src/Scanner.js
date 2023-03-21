@@ -52,7 +52,7 @@ function Sccanner() {
   // eslint-disable-next-line no-unused-vars
   const [data, setData] = React.useState("Not Found");
   return (
-    <div className="barcode-page-bg">
+    <div className="barcode-page-bg flex column  ">
       <div className=" flex column align-center ">
         <div className="flex justify-center pt-2   ">
           <p className="white-color">
@@ -75,7 +75,7 @@ function Sccanner() {
             }}
             delay={state.delay}
             style={previewStyle}
-            videoStyle={{ 
+            videoStyle={{
               width: "370px",
               height: "320px",
               borderRadius: "10px",
@@ -100,10 +100,19 @@ function Sccanner() {
         <div className="content" ref={modalRef}>
           <BarCodeInformation
             barCode={barCode}
+            setBarCode={setBarCode}
             setIsShownModal={setIsShownModal}
           />
         </div>
       </div>
+      <p style={{ color: "#ffffff" }}>OR</p>
+      <button
+        style={{ width: "80%" }}
+        className="btn"
+        onClick={() => setIsShownModal(true)}
+      >
+        Enter BarCode Number
+      </button>
     </div>
   );
 }
