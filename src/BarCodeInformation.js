@@ -41,6 +41,7 @@ function BarCodeInformation({ barCode, setBarCode, setIsShownModal }) {
           setLoading(false);
           toast.success("Barcode has been added successfully");
           setIsShownModal(false);
+          window.location.reload();
         } else {
           setLoading(false);
           setIsShownModal(false);
